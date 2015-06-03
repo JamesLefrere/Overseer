@@ -10,7 +10,7 @@ var exec = childProcess.exec;
 /* -------- */
 // Be sure to change this or your data might be stored
 // somewhere you don't want it to be.
-var appName = 'Electrometeor';
+var appName = 'Overseer';
 
 
 var app = require('app'); // Module to control application life.
