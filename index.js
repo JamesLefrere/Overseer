@@ -23,7 +23,7 @@ console.log(dirname); // The name of the directory that the currently executing 
 // the OS find it.
 function freePort (callback) {
   var server = net.createServer();
-  var port = 0;
+  var port = 27374;
 
   server.on('listening', function () {
     port = server.address().port;
@@ -41,7 +41,7 @@ function freePort (callback) {
 function start (callback) {
   if (process.env.NODE_ENV === 'development') {
     console.log('Running in Dev mode.');
-    callback('http://localhost:3000');
+    callback('http://localhost:' + process.env.PORT);
   } else {
     process.stdout.write('Starting production server\n');
 
@@ -76,6 +76,7 @@ function start (callback) {
     }
 
     freePort(function (err, webPort) {
+      webPort = 27374;
       freePort(function (err, mongoPort) {
         console.log('MongoPort: ', mongoPort);
         console.log('WebPort: ', webPort);

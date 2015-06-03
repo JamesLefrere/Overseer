@@ -13,6 +13,8 @@ var path = require('path');
 
 // Make sure we don't try to run in production
 process.env.NODE_ENV = 'development';
+process.env.ROOT_URL = 'http://localhost:27374';
+process.env.PORT = 27374;
 
 // Get the directory of the current script
 var dir = __dirname;
