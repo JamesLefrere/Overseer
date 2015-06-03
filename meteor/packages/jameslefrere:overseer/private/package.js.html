@@ -1,0 +1,19 @@
+Package.describe({
+	name: "{{name}}",
+	summary: "{{summary}}",
+	version: "{{version}}"{{#if git}},
+	git: "{{git}}"{{/if}}
+});
+
+Package.onUse(function(api) {
+	api.versionsFrom("{{versionsFrom}}");
+	{{#each apiUse}}api.use("{{name}}"{{#if where}}, {{list where}}{{/if}});
+	{{/each}}
+	{{#each apiFiles}}api.addFiles("{{path}}{{name}}.{{extension}}"{{#if where}}, {{list where}}{{/if}});
+	{{/each}}
+	{{#each apiExport}}api.export("{{variable}}"{{#if where}}, {{list where}}{{/if}});
+	{{/each}}
+});
+
+{{#each npmDepends}}Npm.depends({"{{name}}": "{{version}}"});
+{{/each}}

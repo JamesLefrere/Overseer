@@ -1,0 +1,163 @@
+@white: hsla(0, 100%, 100%, 0.8);
+@whiteTransparent: hsla(0, 100%, 100%, 0.3);
+@grey: hsl(20, 5%, 10%);
+@highlight: hsl(17, 100%, 50%);
+@black: black;
+@blackTransparent: hsla(0, 0%, 0%, 0.8);
+@helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cf {
+  &:before,
+  &:after {
+	content: "";
+	display: table;
+  }
+  &:after {
+	clear: both;
+  }
+}
+
+body, html {
+  background: @grey;
+  height: 100%;
+}
+
+.overseer {
+  padding: 2rem 1rem;
+  color: @white;
+  font-family: @helvetica;
+  font-size: 16px;
+  line-height: 1.4rem;
+  overflow-x: hidden;
+  h3 {
+	border-top: 1px @whiteTransparent solid;
+	padding-top: 0.25rem;
+	margin-bottom: 1rem;
+  }
+  ul {
+	list-style: none;
+  }
+  input, textarea {
+	background: transparent;
+	border: 1px @whiteTransparent solid;
+	color: @white;
+	padding: 5px;
+	width: 100%;
+	&:focus {
+	  outline: 1px @white solid;
+	  border-color: @white;
+	}
+  }
+  form > div, fieldset > div {
+	margin-bottom: 0.5rem;
+  }
+  input, textarea, div > div > label, legend, button {
+	font-size: 0.8rem;
+  }
+  label {
+	&.first {
+	  display: block;
+	  margin-bottom: 0.75rem;
+	}
+  }
+  input[type="checkbox"] {
+	width: auto;
+	appearance: none;
+	&:focus {
+	  outline: none;
+	}
+  }
+  fieldset {
+	border: none;
+	margin: 0.25rem 0 1rem 0;
+	legend {
+	  display: none;
+	}
+	div {
+	  margin-top: auto !important;
+	}
+	fieldset {
+	  legend {
+		display: block;
+	  }
+	  border: none;
+	}
+  }
+  button {
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	color: @white;
+	border: 1px @whiteTransparent solid;
+	padding: 0.5rem;
+	cursor: pointer;
+	&:focus, &:hover {
+	  outline: 1px @white solid;
+	  outline-offset: -2px;
+	  border-color: @white;
+	}
+  }
+  .autoform-array-item {
+	position: relative;
+	fieldset {
+	  border: 1px @whiteTransparent solid;
+	  padding: 0.5rem 0.5rem 0;
+	}
+  }
+  .autoform-remove-item {
+	position: absolute;
+	bottom: -1rem;
+	right: 0.5rem;
+	background: @white;
+	color: @black;
+	border: none !important;
+  }
+  .inline {
+	display: inline;
+	width: auto;
+  }
+}
+.overseer-header {
+  border-top: 1px @highlight solid;
+  padding-top: 0.25rem;
+  margin-bottom: 1.5rem;
+  .info {
+	float: right;
+	font-size: 0.8rem;
+  }
+  .app {
+	clear: left;
+	font-size: 0.8rem;
+  }
+  .title {
+  	color: @highlight;
+	float: left;
+	font-size: 1.5rem;
+	font-weight: 900;
+	margin: 0;
+	padding: 0;
+  }
+}
+
+.overseer-apps {
+  li {
+	padding: 0.5rem;
+	margin: 0.5rem 0;
+	border: 1px @whiteTransparent solid;
+	cursor: pointer;
+	font-size: 0.8rem;
+	word-break: break-all;
+	&:hover {
+	  border: 1px @white solid;
+	}
+	&.is-active {
+	  background: @whiteTransparent;
+	}
+  }
+}

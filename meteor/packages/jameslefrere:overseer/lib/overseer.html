@@ -1,0 +1,63 @@
+<template name="overseer">
+	<div class="overseer">
+		<header class="overseer-header cf">
+			<h1 class="title">Overseer</h1>
+			<div class="info">version x.x.x</div>
+			{{#if app}}
+			<div class="app">{{app.pwd}}</div>
+			{{/if}}
+		</header>
+		<div class="row">
+			{{> overseerApps}}
+			{{> overseerList}}
+			{{> overseerForm action="create"}}
+		</div>
+	</div>
+</template>
+
+<template name="overseerApps">
+	<div class="overseer-apps col-xs-12 col-sm-3">
+		<h3>Meteor apps</h3>
+		<ul>
+		{{#each apps}}
+			<li class="overseer-app{{#if isActive}} is-active{{/if}}">{{pwd}}</li>
+		{{/each}}
+		</ul>
+	</div>
+</template>
+
+<template name="overseerList">
+	<div class="overseer-list col-xs-12 col-sm-5">
+		<h3>Custom packages</h3>
+		<ul>
+			{{#each packages}}
+			<li>{{name}}</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>
+
+<template name="overseerForm">
+	<div class="overseer-form col-xs-12 col-sm-4">
+		<h3>Create package</h3>
+		{{#autoForm id="overseerForm" schema="Overseer.schema.package" type="normal" template="plain"}}
+			<label class="first">Package description</label>
+			{{> afQuickField name="name" label=false placeholder="schemaLabel"}}
+			{{> afQuickField name="summary" label=false placeholder="schemaLabel"}}
+			{{> afQuickField name="version" label=false placeholder="schemaLabel"}}
+			{{> afQuickField name="git" label=false placeholder="schemaLabel"}}
+			{{> afQuickField name="documentation" label=false placeholder="schemaLabel"}}
+			{{> afQuickField name="versionsFrom" label=false placeholder="schemaLabel"}}
+			{{> afQuickField name="debugOnly" label=false placeholder="schemaLabel"}}
+			<label>Files</label>
+			{{> afQuickField name="apiFiles" label=false placeholder="schemaLabel"}}
+			<label>Package dependencies</label>
+			{{> afQuickField name="apiUse" label=false placeholder="schemaLabel"}}
+			<label>NPM dependencies</label>
+			{{> afQuickField name="npmDepends" label=false placeholder="schemaLabel"}}
+			<label>Variable exports</label>
+			{{> afQuickField name="apiExport" label=false placeholder="schemaLabel"}}
+			<button class="submit">Create package</button>
+		{{/autoForm}}
+	</div>
+</template>
