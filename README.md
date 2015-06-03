@@ -4,7 +4,7 @@ Overseer is an Electrometeor-based app which assists local development of Meteor
 
 ## Features
 
-* Connect to local apps with the jameslefrere:overseer package
+* Connect to local apps with the jameslefrere:overlord package
 * Find custom packages
 * Create new custom packages
 
